@@ -1,28 +1,26 @@
 # README
 ## user テーブル
 
-|Column        |Type  |Options     |
-|--------------|------|------------|
-|nickname      |string|null: false |
-|email         |string|null: false |
-|password      |string|null: false |
-|last_name     |string|null: false |
-|first_name    |string|null: false |
-|furigana_last |string|null: false |
-|furigana_first|string|null: false |
-|birth_year    |string|null: false |
-|birth_month   |string|null: false |
-|birth_day     |string|null: false |
+|Column         |Type      |Options     |
+|-------------- |------    |------------|
+|nickname       |string    |null: false |
+|email          |string    |null: false |
+|password       |string    |null: false |
+|last-name      |string    |null: false |
+|first-name     |string    |null: false |
+|last-name-kana |string    |null: false |
+|first-name-kana|string    |null: false |
+|birth_date     |datetime  |null: false |
 
 ### Association
 - has_many: displays
 - has_many: purchases
+- has_many: history
 
 ## display テーブル
 
 |Column        |Type  |Options     |
 |--------------|------|------------|
-|image         |string|null: false |
 |product_name  |string|null: false |
 |category      |string|null: false |
 |condition     |string|null: false |
@@ -34,6 +32,7 @@
 ### Association
 - belongs_to: user
 - belongs_to: purchase
+- belongs_to: history
 
 ## purchase テーブル
 
@@ -45,9 +44,18 @@
 |address       |string|null: false |
 |phone_num     |string|null: false |
 |building      |string|null: false |
-|credit_num    |string|null: false |
-|expiration    |string|null: false |
-|security      |string|null: false |
+
+
+### Association
+-belongs_to: user
+-belongs_to: display
+
+## history テーブル
+
+|Column        |Type  |Options     |
+|--------------|------|------------|
+|user_id       |      |            |
+|display_id    |      |            |
 
 ### Association
 -belongs_to: user
