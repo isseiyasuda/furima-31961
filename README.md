@@ -1,9 +1,8 @@
 # README
-## user テーブル
+## users テーブル
 
 |Column            |Type      |Options     |
 |--------------    |------    |------------|
-|user_id           |integer   |null: false |
 |nickname          |string    |null: false |
 |email             |string    |null: false , unique: true|
 |encrypted_password|string    |null: false |
@@ -17,7 +16,7 @@
 - has_many: displays
 - has_many: histories
 
-## display テーブル
+## displays テーブル
 
 |Column           |Type   |Options     |
 |--------------   |------ |------------|
@@ -29,12 +28,13 @@
 |days_id          |integer|null: false |
 |price            |integer|null: false |
 |description      |text   |null: false |
+|user             |integer|foreign_key: true|
 
 ### Association
-- belongs_to: user
-- has_one: history
+- belongs_to: users
+- has_one: histories
 
-## address テーブル
+## addresses テーブル
 
 |Column           |Type       |Options          |
 |--------------   |------     |------------     |
@@ -47,11 +47,11 @@
 |history_id          |references |foreign_key: true|
 
 ### Association
-- belongs_to: history
+- belongs_to: histories
 
 
 
-## history テーブル
+## histories テーブル
 
 |Column        |Type       |Options          |
 |--------------|------     |------------     |
@@ -59,6 +59,6 @@
 |display_id       |references |foreign_key: true|
 
 ### Association
-- belongs_to: user
-- belongs_to: display
-- has_one: address
+- belongs_to: users
+- belongs_to: displays
+- has_one: addresses

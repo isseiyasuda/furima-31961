@@ -13,10 +13,10 @@
                     <mxGeometry y="26" width="260" height="164" as="geometry"/>
                 </mxCell>
                 <mxCell id="73" value="display" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="470" y="36" width="280" height="160" as="geometry"/>
+                    <mxGeometry x="470" y="36" width="280" height="170" as="geometry"/>
                 </mxCell>
-                <mxCell id="74" value="product_name&#10;image&#10;category&#10;condition&#10;charges&#10;area&#10;shipping_days&#10;price&#10;description" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="73" vertex="1">
-                    <mxGeometry y="26" width="280" height="134" as="geometry"/>
+                <mxCell id="74" value="product_name&#10;image&#10;category&#10;condition&#10;charges&#10;area&#10;shipping_days&#10;price&#10;description&#10;user" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="73" vertex="1">
+                    <mxGeometry y="26" width="280" height="144" as="geometry"/>
                 </mxCell>
                 <mxCell id="94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=classicThin;startFill=1;" parent="1" source="77" edge="1">
                     <mxGeometry relative="1" as="geometry">
