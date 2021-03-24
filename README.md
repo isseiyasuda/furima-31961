@@ -27,7 +27,7 @@
 |charges_id       |integer|null: false |
 |area_id          |integer|null: false |
 |days_id          |integer|null: false |
-|price_id         |integer|null: false |
+|price            |integer|null: false |
 |description      |text   |null: false |
 
 ### Association
@@ -44,7 +44,7 @@
 |street_num       |string     |null: false      |
 |phone_num        |string     |null: false      |
 |building         |string     |                 |
-|history          |references |foreign_key: true|
+|history_id          |references |foreign_key: true|
 
 ### Association
 - belongs_to: history
@@ -55,8 +55,8 @@
 
 |Column        |Type       |Options          |
 |--------------|------     |------------     |
-|user          |references |foreign_key: true|
-|display       |references |foreign_key: true|
+|user_id          |references |foreign_key: true|
+|display_id       |references |foreign_key: true|
 
 ### Association
 - belongs_to: user
