@@ -3,6 +3,7 @@
 
 |Column            |Type      |Options     |
 |--------------    |------    |------------|
+|user_id           |integer   |null: false |
 |nickname          |string    |null: false |
 |email             |string    |null: false , unique: true|
 |encrypted_password|string    |null: false |
@@ -26,7 +27,8 @@
 |charges_id       |integer|null: false |
 |area_id          |integer|null: false |
 |days_id          |integer|null: false |
-|price            |string |null: false |
+|price_id         |integer|null: false |
+|description      |text   |null: false |
 
 ### Association
 - belongs_to: user
@@ -34,15 +36,15 @@
 
 ## address テーブル
 
-|Column           |Type   |Options          |
-|--------------   |------ |------------     |
-|postal_code      |string |null: false      |
-|prefecture       |integer|null: false      |
-|municipalities   |string |null: false      |
-|street_num       |string |null: false      |
-|phone_num        |string |null: false      |
-|building         |string |                 |
-|history_id       |index  |foreign_key: true|
+|Column           |Type       |Options          |
+|--------------   |------     |------------     |
+|postal_code      |string     |null: false      |
+|prefecture       |integer    |null: false      |
+|municipalities   |string     |null: false      |
+|street_num       |string     |null: false      |
+|phone_num        |string     |null: false      |
+|building         |string     |                 |
+|history          |references |foreign_key: true|
 
 ### Association
 - belongs_to: history
@@ -51,11 +53,12 @@
 
 ## history テーブル
 
-|Column        |Type  |Options          |
-|--------------|------|------------     |
-|user_id       |index |foreign_key: true|
-|display_id    |index |foreign_key: true|
+|Column        |Type       |Options          |
+|--------------|------     |------------     |
+|user          |references |foreign_key: true|
+|display       |references |foreign_key: true|
 
 ### Association
--belongs_to: user
--belongs_to: display
+- belongs_to: user
+- belongs_to: display
+- has_one: address
