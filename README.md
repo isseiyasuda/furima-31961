@@ -28,26 +28,26 @@
 |days_id          |integer|null: false |
 |price            |integer|null: false |
 |description      |text   |null: false |
-|user             |integer|foreign_key: true|
+|user             |references|foreign_key: true|
 
 ### Association
-- belongs_to: users
-- has_one: histories
+- belongs_to: user
+- has_one: history
 
 ## addresses テーブル
 
 |Column           |Type       |Options          |
 |--------------   |------     |------------     |
 |postal_code      |string     |null: false      |
-|prefecture       |integer    |null: false      |
+|area             |integer    |null: false      |
 |municipalities   |string     |null: false      |
 |street_num       |string     |null: false      |
 |phone_num        |string     |null: false      |
 |building         |string     |                 |
-|history_id          |references |foreign_key: true|
+|history          |references |foreign_key: true|
 
 ### Association
-- belongs_to: histories
+- belongs_to: history
 
 
 
@@ -59,6 +59,6 @@
 |display_id       |references |foreign_key: true|
 
 ### Association
-- belongs_to: users
-- belongs_to: displays
-- has_one: addresses
+- belongs_to: user
+- belongs_to: display
+- has_one: address
