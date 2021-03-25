@@ -8,8 +8,8 @@
 |encrypted_password|string    |null: false |
 |last_name         |string    |null: false |
 |first_name        |string    |null: false |
-|last_name-kana    |string    |null: false |
-|first_name-kana   |string    |null: false |
+|last_name_kana    |string    |null: false |
+|first_name_kana   |string    |null: false |
 |birth_date        |date      |null: false |
 
 ### Association
@@ -23,7 +23,7 @@
 |product_name     |string |null: false |
 |category_id      |integer|null: false |
 |condition_id     |integer|null: false |
-|charges_id       |integer|null: false |
+|charge_id       |integer|null: false |
 |area_id          |integer|null: false |
 |days_id          |integer|null: false |
 |price            |integer|null: false |
@@ -55,8 +55,8 @@
 
 |Column        |Type       |Options          |
 |--------------|------     |------------     |
-|user_id          |references |foreign_key: true|
-|display_id       |references |foreign_key: true|
+|user          |references |foreign_key: true|
+|display      |references |foreign_key: true|
 
 ### Association
 - belongs_to: user
