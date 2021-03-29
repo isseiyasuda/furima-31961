@@ -23,9 +23,9 @@
 |product_name     |string |null: false |
 |category_id      |integer|null: false |
 |condition_id     |integer|null: false |
-|charge_id       |integer|null: false |
+|charge_id        |integer|null: false |
 |area_id          |integer|null: false |
-|days_id          |integer|null: false |
+|delivery_day_id          |integer|null: false |
 |price            |integer|null: false |
 |description      |text   |null: false |
 |user             |references|foreign_key: true|
