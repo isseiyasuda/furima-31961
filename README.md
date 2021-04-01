@@ -39,7 +39,7 @@
 |Column           |Type       |Options          |
 |--------------   |------     |------------     |
 |postal_code      |string     |null: false      |
-|area             |integer    |null: false      |
+|area_id             |integer    |null: false      |
 |municipalities   |string     |null: false      |
 |street_num       |string     |null: false      |
 |phone_num        |string     |null: false      |
