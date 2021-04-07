@@ -16,7 +16,7 @@
 - has_many: displays
 - has_many: histories
 
-## displays テーブル
+## items テーブル
 
 |Column           |Type   |Options     |
 |--------------   |------ |------------|
