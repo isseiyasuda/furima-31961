@@ -1,5 +1,80 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @user = FactoryBot.create(:user)
+    @item = FactoryBot.build(:item,user_id:@user.id)
+    
+  end
+
+  describe "出品機能" do
+    context "出品できるとき" do
+      it '商品画像、商品名商品の説明、カテゴリー、商品の状態、配送料の負担、発送元の地域、発送までの日数、価格、販売価格が存在すれば出品できること' do
+        expect(@item).to be_valid
+      end
+    end
+      context "出品できないとき" do
+        it '商品画像が空では登録できない' do
+         @item.image = nil
+         @item.valid?
+         expect(@item.errors.full_messages).to include()
+        end
+        it '商品名が空では出品できない' do
+          @item.product_name = ''
+          @item.valid?
+          expect(@item.errors.full_messages).to include()
+        end
+        it '商品の説明が空では出品できない' do
+          @item.description = ''
+          @item.valid?
+          expect(@item.errors.full_messages).to include()
+        end
+        it 'カテゴリーの情報が空では出品できない' do
+          @item.product_name = ''
+          @item.valid?
+          expect(@item.errors.full_messages).to include()
+        end
+        it '商品の状態の情報が空では出品できない' do
+          @item.condition_id = '1'
+          @item.valid?
+          expect(@item.errors.full_messages).to include()
+        end
+        it '配送料の負担の情報が空では出品できない' do
+          @item.charge_id = '1'
+          @item.valid?
+          expect(@item.errors.full_messages).to include()
+        end
+        it '発送元の地域についての情報が空では出品できない' do
+          @item.area_id = '1'
+          @item.valid?
+          expect(@item.errors.full_messages).to include()
+        end
+        it '発送までの日数についての情報が空では出品できない' do
+          @item.delivery_day_id = '1'
+          @item.valid?
+          expect(@item.errors.full_messages).to include()
+        end
+        it '価格についての情報が空では出品できない' do
+          @item.price = ''
+          @item.valid?
+          expect(@item.errors.full_messages).to include()
+        end
+        it '価格の範囲が、¥300~¥9,999,999の間でなければ出品できない' do
+          @item.price = '100'
+          @item.valid?
+          expect(@item.errors.full_messages).to include()
+        end
+        it '販売価格が英数では出品できない' do
+          @item.price = 'abc'
+          @item.valid?
+          expect(@item.errors.full_messages).to include()
+        end
+        it '販売価格が全角では出品できない' do
+          @item.price = '１２３４５'
+          @item.valid?
+          expect(@item.errors.full_messages).to include()
+        end
+    end
+  end
+
 end
