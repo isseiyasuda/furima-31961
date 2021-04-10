@@ -16,7 +16,7 @@
 - has_many: displays
 - has_many: histories
 
-## displays テーブル
+## items テーブル
 
 |Column           |Type   |Options     |
 |--------------   |------ |------------|
@@ -25,7 +25,7 @@
 |condition_id     |integer|null: false |
 |charge_id        |integer|null: false |
 |area_id          |integer|null: false |
-|delivery_day_id          |integer|null: false |
+|delivery_day_id  |integer|null: false |
 |price            |integer|null: false |
 |description      |text   |null: false |
 |user             |references|foreign_key: true|
