@@ -20,7 +20,7 @@ class Item < ApplicationRecord
     validates :condition_id
     validates :charge_id
     validates :area_id
-    validates :delivery_day_id
+    validates :delivery_id
     end
 
 validates :image, presence: true, unless: :was_attached?

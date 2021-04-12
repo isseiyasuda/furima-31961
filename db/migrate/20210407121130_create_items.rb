@@ -1,6 +1,8 @@
 class CreateItems < ActiveRecord::Migration[6.0]
+
   def change
     create_table :items do |t|
+
 
       t.string     :content
       t.string     :product_name,   null: false
@@ -8,7 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer    :condition_id,   null: false 
       t.integer    :charge_id,      null: false 
       t.integer    :area_id,        null: false 
-      t.integer    :delivery_day_id,null: false 
+      t.integer    :delivery_id,null: false 
       t.integer    :price,          null: false 
       t.text       :description,    null: false 
       t.references :user,           foreign_key: true
