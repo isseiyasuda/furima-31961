@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
     include ActiveModel::Model
-    attr_accessor :token,:history,:address
+    attr_accessor :token,:price,:postal_code,:area_id,:municipalities,:street_num,:phone_num,:building
   
     # ここにバリデーションの処理を書く
     with_options presence: true do
