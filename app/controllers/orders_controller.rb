@@ -6,9 +6,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    
-    @order = Order.new(order_params)
     @item = Item.find(params[:item_id])
+    @order = Order.new(order_params)
+    
     if @order.valid?
       Payjp.api_key = "sk_test_222661acef74342479f80640"  
       Payjp::Charge.create(
@@ -25,6 +25,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:postal_code,:area_id,:municipalities,:street_num,:phone_num,:building).merge(token: params[:token])
+    params.require(:order).permit(:postal_code,:area_id,:municipalities,:street_num,:phone_num,:building).merge(token: params[:token],user_id: current_user.id,item_id: @item.id)
   end
 end

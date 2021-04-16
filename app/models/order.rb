@@ -1,6 +1,6 @@
-class Order < ApplicationRecord
+class Order 
     include ActiveModel::Model
-    attr_accessor :token,:price,:postal_code,:area_id,:municipalities,:street_num,:phone_num,:building
+    attr_accessor :token,:price,:postal_code,:area_id,:municipalities,:street_num,:phone_num,:building,:user_id,:item_id
   
     # ここにバリデーションの処理を書く
     with_options presence: true do
@@ -14,10 +14,10 @@ class Order < ApplicationRecord
   
     def save
       # 各テーブルにデータを保存する処理を書く
-      @address = Address.new
-      @address.save
-      @history = History.new
-      @history.save
+
+      @history = History.create(user_id: user_id,item_id: item_id)
+      Address.create(postal_code: postal_code,area_id: area_id,municipalities: municipalities,street_num: street_num,phone_num: phone_num,building: building,history_id: @history.id)
+
     end
   end
   
