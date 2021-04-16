@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
   end
 
   def redirect_root_path
-    redirect_to root_path unless current_user.id == @item.user
+    redirect_to root_path unless current_user.id == @item.user.id && @item.history.blank?
   end
  
 end
