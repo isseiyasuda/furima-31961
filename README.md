@@ -13,7 +13,7 @@
 |birth_date        |date      |null: false |
 
 ### Association
-- has_many: displays
+- has_many: items
 - has_many: histories
 
 ## items テーブル
@@ -60,5 +60,5 @@
 
 ### Association
 - belongs_to: user
-- belongs_to: display
+- belongs_to: item
 - has_one: address

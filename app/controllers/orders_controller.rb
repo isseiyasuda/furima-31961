@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_item_id
   before_action :move_to_index
   def index
@@ -11,7 +12,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     
     if @order.valid?
-      Payjp.api_key = "sk_test_222661acef74342479f80640"  
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"] 
       Payjp::Charge.create(
         amount: @item.price,  
         card: order_params[:token],    
@@ -35,8 +36,8 @@ class OrdersController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path unless user_signed_in?
-    if user_signed_in? && current_user.id == @item.user_id 
+    
+    if current_user.id == @item.user_id 
     redirect_to root_path 
     end
     redirect_to root_path unless @item.history.blank?
