@@ -5,5 +5,7 @@ FactoryBot.define do
     municipalities   {'テスト'}
     street_num {'テスト1-1'}
     phone_num{'00000000'}
+    
+    token {"tok_abcdefghijk00000000000000000"}
   end
 end
