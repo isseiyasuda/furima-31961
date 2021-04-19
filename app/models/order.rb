@@ -4,8 +4,7 @@ class Order
   
     
     with_options presence: true do
-    validates :postal_code,format: { with: /\A\d{3}[-]\d{4}\z/,
-      message: "" }
+    validates :postal_code,format: { with: /\A\d{3}[-]\d{4}\z/}
     validates :municipalities
     validates :street_num 
     validates :phone_num,numericality: {only_integer: true}, length: { in: 0..11 }
