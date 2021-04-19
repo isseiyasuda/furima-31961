@@ -50,7 +50,7 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include("Area must be other than 1")
         end
         it '発送までの日数についての情報が空では出品できない' do
-          @item.delivery_day_id = 1
+          @item.delivery_id = 1
           @item.valid?
           expect(@item.errors.full_messages).to include("Delivery day must be other than 1")
         end
@@ -62,7 +62,7 @@ RSpec.describe Item, type: :model do
         it '価格の範囲が、¥300未満ではなければ出品できない' do
           @item.price = 100
           @item.valid?
-          expect(@item.errors.full_messages).to include()
+          expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
         end
         it '販売価格が英数では出品できない' do
           @item.price = "abc"
@@ -82,7 +82,7 @@ RSpec.describe Item, type: :model do
         it '価格が10,000,000以上では登録できないこと' do
           @item.price = 10000000000
           @item.valid?
-          expect(@item.errors.full_messages).to include()
+          expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
         end
     end
   end

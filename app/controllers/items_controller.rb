@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @user = @item.user_id
   end
 
   def edit

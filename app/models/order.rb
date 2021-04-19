@@ -7,7 +7,7 @@ class Order
     validates :postal_code,format: { with: /\A\d{3}[-]\d{4}\z/}
     validates :municipalities
     validates :street_num 
-    validates :phone_num,numericality: {only_integer: true}, length: { in: 0..11 }
+    validates :phone_num,numericality: {only_integer: true}, length: { in: 10..11 }
     validates :user_id
     validates :item_id
     validates :token
